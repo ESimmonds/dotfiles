@@ -37,7 +37,7 @@ cp -R ~/Documents ~/migration
 
 cp ~/.bash_history ~/migration # back it up for fun?
 
-cp ~/.gitconfig.local ~/migration
+cp ~/.gitconfig ~/migration
 
 cp ~/.z ~/migration # z history file.
 

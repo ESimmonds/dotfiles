@@ -27,7 +27,10 @@ else # OS X `ls`
 fi
 
 # ls options: F = put `/` after folders, h = byte unit suffixes, color! (even with piping to awk)
-#alias ls='CLICOLOR_FORCE=1 gls -aFHG ${colorflag} --group-directories-first'
+alias ls='ls ${colorflag}'
+
+# List all files colorized in long format
+alias l="ls -l ${colorflag}"
 
 # List ALL files (colorized() in long format, show permissions in octal
 alias la="ls -l | awk '

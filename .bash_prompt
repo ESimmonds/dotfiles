@@ -35,13 +35,13 @@ set_prompts() {
         black=$(tput setaf 0)
         blue=$(tput setaf 33)
         cyan=$(tput setaf 37)
-        green=$(tput setaf 190)
+        green=$(tput setaf 2)
         orange=$(tput setaf 172)
         purple=$(tput setaf 141)
         red=$(tput setaf 124)
         violet=$(tput setaf 61)
         magenta=$(tput setaf 9)
-        white=$(tput setaf 8)
+        white=$(tput setaf 256)
         yellow=$(tput setaf 136)
 
     else
