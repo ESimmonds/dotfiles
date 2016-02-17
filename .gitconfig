@@ -1,95 +1,37 @@
-[alias]
-	c = commit -am
-	up = pull
-	p = push
-	s = status -s
-	sclone = clone --depth=1
-	df = diff --color --color-words --abbrev
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	co = checkout
-
-	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-
-	# Merge GitHub pull request on top of the `master` branch
-	mpr = "!f() { \
-		if [ $(printf \"%s\" \"$1\" | grep '^[0-9]\\+$' > /dev/null; printf $?) -eq 0 ]; then \
-			git fetch origin refs/pull/$1/head:pr/$1 && \
-			git rebase master pr/$1 && \
-			git checkout master && \
-			git merge pr/$1 && \
-			git branch -D pr/$1 && \
-			git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
-		fi \
-	}; f"
-
-
-
-[color]
-	ui = always
-
+[user]
+    name = Equan Simmonds
+    email = esimmonds@ncarb.org
 [core]
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
-	# insanely beautiful diffs
-	pager = diff-highlight | diff-so-fancy | less -r 
-[color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
-[color "diff"]
-	meta = yellow bold
-	commit = green bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-[color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
-[merge]
-    tool = opendiff
-
-
-[color "diff-highlight"]
-	oldNormal = "red bold"
-	oldHighlight = "red bold 52"
-	newNormal = "green bold"
-	newHighlight = "green bold 22"
-
-# rewrites
-[url "git@github.com:"]
-	insteadOf = "gh:"
-	insteadOf = "git://github.com"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
-    pushInsteadOf = "https://github.com/"
-[url "git@gist.github.com:"]
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
-	pushInsteadOf = "https://gist.github.com/"
-
-
-# Any GitHub repo with my username should be checked out r/w by default
-# http://rentzsch.tumblr.com/post/564806957/public-but-hackable-git-submodules
-
-[url "git@github.com:paulirish/"]
-  insteadOf = "git://github.com/paulirish/"
-[help]
-	autocorrect = 1
-
-# push easily. http://stackoverflow.com/a/23918418/89484
+    editor = '/opt/homebrew-cask/Caskroom/sublime-text3/Build 3083/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w
+[alias]
+    stash-unapply = !git stash show -p | git apply -R
+    co = checkout
+    ec = config --global -e
+    up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+    cob = checkout -b
+    cm = !git add -A && git commit -m
+    save = !git add -A && git commit -m 'SAVEPOINT'
+    undo = reset HEAD~1 --mixed
+    amend = commit -a --amend
+    wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+    atop = !git fetch upstream && git rebase upstream/develop
 [push]
-	default = current
-
-
-
-[include]
-  # For username / github token / etc
-  path = ~/.gitconfig.local
+    default = nothing
+[commit]
+    template = commitTemplate.txt
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
+[difftool "p4merge"]
+    cmd = /opt/homebrew-cask/caskroom/p4merge/2014.3-1007540/p4merge.app/Contents/Resources/launchp4merge "\"$REMOTE\"" "\"$LOCAL\""
+[mergetool "p4merge"]
+	cmd = /opt/homebrew-cask/caskroom/p4merge/2014.3-1007540/p4merge.app/Contents/Resources/launchp4merge "\"$PWD/$BASE\"" "\"$PWD/$REMOTE\"" "\"$PWD/$LOCAL\"" "\"$PWD/$MERGED\""
+	trustExitCode = true
+    keepTemporaries = false
+    keepBackup = false
+[diff]
+	external = meld
+    tool = p4merge
+[merge]
+    tool = p4merge
