@@ -2,7 +2,7 @@
     name = Equan Simmonds
     email = esimmonds@ncarb.org
 [core]
-    editor = '/opt/homebrew-cask/Caskroom/sublime-text3/Build 3083/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w
+    editor = '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w
 [alias]
     stash-unapply = !git stash show -p | git apply -R
     co = checkout
@@ -32,6 +32,16 @@
     keepBackup = false
 [diff]
 	external = meld
-    tool = p4merge
+    tool = vscode
 [merge]
     tool = p4merge
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
