@@ -43,7 +43,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 ## hooking in other apps…
 ##
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+. "/usr/local/opt/nvm/nvm.sh"
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -71,7 +71,7 @@ fi;
 
 # homebrew completion
 if  which brew > /dev/null; then
-    source `brew --repository`/Library/Contributions/brew_bash_completion.sh
+    source "$(brew --prefix)/etc/bash_completion.d/brew"
 fi;
 
 # Enable tab completion for `g` by marking it as an alias for `git`
@@ -97,6 +97,4 @@ shopt -s nocaseglob;
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;
 
-
-
-
+export PATH="/usr/local/sbin:$PATH"
