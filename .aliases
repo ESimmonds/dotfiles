@@ -52,7 +52,7 @@ alias lsd='ls -l | grep "^d"'
 # 							   sudo easy_install -U Pygments
 alias c='pygmentize -O style=monokai -f console256 -g'
 
-# GIT STUFF
+# Git alias in .gitconfig
 
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
@@ -62,8 +62,6 @@ alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup 
 
 
 # IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # All the dig info
@@ -80,14 +78,12 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
 alias g="git"
-alias v="vim"
 
 # File size
 alias fs="stat -f \"%z bytes\""
 
 # Empty the Trash on all mounted volumes and the main HDD. then clear the useless sleepimage
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /private/var/vm/sleepimage"
-
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
