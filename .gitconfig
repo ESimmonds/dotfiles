@@ -11,11 +11,12 @@
     cob = checkout -b
     cot = checkout -t
     cm = !git add -A && git commit -m
-    save = !git add -A && git commit -m 'chore(save): save checkpoint'
+    save = !git add -A && git commit -m 'chore(save): checkpoint'
     undo = reset HEAD~1 --mixed
     amend = commit -a --amend
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
     atop = !git fetch upstream && git rebase upstream/develop
+    hreset = reset --hard
 [push]
 	default = current
 [commit]
