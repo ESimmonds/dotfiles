@@ -17,6 +17,9 @@
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
     atop = !git fetch upstream && git rebase upstream/develop
     hreset = reset --hard
+    pick = cherry-pick
+    resetFile = checkout head^1 --
+    track = branch -u
 [push]
 	default = current
 [commit]
