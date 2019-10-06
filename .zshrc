@@ -116,3 +116,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # added by travis gem
 [ -f /Users/Equan/.travis/travis.sh ] && source /Users/Equan/.travis/travis.sh
+
+# added by travis gem
+[ -f /Users/esimmonds/.travis/travis.sh ] && source /Users/esimmonds/.travis/travis.sh
