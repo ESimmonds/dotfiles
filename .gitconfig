@@ -20,6 +20,7 @@
     pick = cherry-pick
     resetFile = checkout head^1 --
     track = branch -u
+    lg = log --graph --oneline --decorate --color --all
 [push]
 	default = current
 [commit]
