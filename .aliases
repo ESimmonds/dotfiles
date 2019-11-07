@@ -14,6 +14,10 @@ alias cp='cp -v'
 
 alias chmox='chmod -x'
 
+# Linux utlities
+alias ipaddr='ifconfig ens33 | grep "inet addr"'
+alias bang="sudo ||"
+
 alias cask='brew cask' # i <3 u cask
 alias where=which # sometimes i forget
 alias brwe=brew  #typos
