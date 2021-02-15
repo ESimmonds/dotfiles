@@ -1,4 +1,3 @@
-
 # Load our dotfiles like ~/.bash_prompt, etc…
 #   ~/.extra can be used for settings you don’t want to commit,
 #   Use it to configure your PATH, thus it being first in line.
@@ -37,8 +36,6 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # ^ the only downside with this is [up] on the readline will go over all history not just this bash session.
 
-
-
 ##
 ## hooking in other apps…
 ##
@@ -54,7 +51,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # z beats cd most of the time.
 #   github.com/rupa/z
-source ~/dev/git/z/z.sh
+source ~/git/z/z.sh
 
 
 ##
@@ -101,3 +98,18 @@ shopt -s nocaseglob;
 shopt -s cdspell;
 
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
+
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+export PATH="$HOME/.poetry/bin:$PATH"
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
