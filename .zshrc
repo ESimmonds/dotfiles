@@ -85,12 +85,6 @@ auto-ls () {
 }
 chpwd_functions=( auto-ls $chpwd_functions )
 
-
-# Enable autosuggestions automatically
-zle-line-init() {
-    zle autosuggest-start
-}
-
 zle -N zle-line-init
 
 
@@ -116,3 +110,10 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # added by travis gem
 [ -f /Users/Equan/.travis/travis.sh ] && source /Users/Equan/.travis/travis.sh
+alias python=/usr/local/bin/python3
+alias pip= /usr/local/bin/pip3
+
+# Enable autosuggestions automatically
+zle-line-init() {
+    zle autosuggest-start
+}
