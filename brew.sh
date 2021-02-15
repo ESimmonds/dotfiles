@@ -33,6 +33,12 @@ brew install grc
 # Install wget with IRI support
 brew install wget --enable-iri
 
+brew install htop
+brew install mas
+brew install python
+brew install archey
+brew install ncdu
+
 # Install more recent versions of some OS X tools
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
