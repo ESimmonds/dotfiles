@@ -9,7 +9,6 @@ alias -- -="cd -"
 
 # mv, rm, cp
 alias mv='mv -v'
-alias rm='rm -i -v'
 alias cp='cp -v'
 
 alias chmox='chmod -x'
@@ -17,6 +16,7 @@ alias chmox='chmod -x'
 alias cask='brew cask' # i <3 u cask
 alias where=which # sometimes i forget
 alias brwe=brew  #typos
+alias bl='brew list | xargs -n1 brew desc'
 
 alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
 
