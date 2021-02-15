@@ -1,8 +1,6 @@
 [user]
     name = Equan Simmonds
-    email = esimmonds@ncarb.org
-[core]
-    editor = '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w
+    email = simmonde@gmail.com
 [alias]
     stash-unapply = !git stash show -p | git apply -R
     co = checkout
@@ -20,6 +18,8 @@
     pick = cherry-pick
     resetFile = checkout head^1 --
     track = branch -u
+    logo = log --graph --oneline
+	lga = log --graph --oneline --all --decorate
 [push]
 	default = current
 [commit]
